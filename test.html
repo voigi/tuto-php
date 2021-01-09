@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Page2</title>
+    <script language="javascript">
+
+
+        function question1(PremiereQ) {
+             
+             if (document.getElementById("2").checked ) { alert("Juste "+ document.getElementById("2").value) }
+             else { alert("Faux ") 
+             
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form name="PremiereQ">
+        <input name="choix" id="1"value="1" type="radio">France et Dankemark
+        <input name="choix" id="2"value="2" type="radio" >France et Suisse <br>
+        <input name="choix" id="3" value="3" type="radio">Italie et Danemark
+        <input name="choix" id="4"value="4" type="radio">Pays-Bas et Suisse <br>
+        <input name="but" value="Correction" onclick="question1(PremiereQ)" type="button">
+    </form>
+    
+</body>
