@@ -21,8 +21,8 @@
      echo 'Le ' . $departement . ' est un departement de France <br><br>';
      
 ///////////////////////////////////////////////Operateurs numeriques///////////////////////////////
-    $nombre1= 5 ;
-    $nombre2= 3;
+    $nombre1 = 5 ;
+    $nombre2 = 3;
 
     $addition = $nombre1 + $nombre2;
     $soustraction = $nombre1 - $nombre2;
@@ -45,6 +45,15 @@
     echo 'La Nouvelle valeur de la variable addition est '. $addition.'<br>';
     echo 'La Nouvelle valeur de la variable soustraction est '. $soustraction.'<br>';
     echo 'La Nouvelle valeur de la variable multiplication est '. $multiplication.'<br>';
-    ?> 
+
+     // On peut intervertir les valeurs sans les ecraser//
+
+        $a=10;
+        $b=5;
+        $c=$a;// c vaut 10
+        $a=$b;// a vaut 5
+        $b=$c;// b vaut 10
+    
+?>
 </body>
 </html>

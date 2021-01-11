@@ -41,6 +41,19 @@
 
     echo $bonjour;
     echo $bonsoir;
+    echo'<br>';
+
+    ///Cours Webforce3//
+    
+    //strlen -> renvoie la longueur d'une chaîne de caractéres + strtoupper->mise en majuscule //
+
+    $str="Bonjour le monde!"; //on obtient 17 (espace compte pour 1,les caractéres spéciaux compte pour 2)
+    $test= strlen($str);
+    echo $test;
+    echo'<br>';
+    $maj =strtoupper($str);
+    echo $maj;
+    echo'<br>';
     ?>
 </body>
 </html>

@@ -9,27 +9,59 @@
 
 <body>
     <?php
-    ///La Boucle While///
-    // $x = 1;
 
-    // while ($x <= 10) {
-    //     echo 'Ceci est le nombre : ' . $x . '<br>';
-    //     $x = $x + 1;
-    // }
+    for ($i = 0; $i <= 4; $i++) {
 
-     ///La Boucle  DO While///
+        echo 'Hello';
+        echo '<br>';
+    }
 
-    //  do{
-    //      echo 'Ceci est le nombre : '.$x.'<br>';
-    //      $x++;
-    //  }
-    //  while($x<=10);
+    echo '<br>';
 
-    /////La  Boucle For //
-        for($x=1;$x<=10;$x++){
+    //boucle while tant que c'est on est ds la boucle//
+    $i = 0;
 
-            echo 'Ceci est le nombre : '.$x.'<br>';
+    while ($i < 10) {
+
+        echo "Hello" . "<br>";
+        $i++;
+    }
+    echo '<br>';
+
+    //do while on verifie aprés//
+
+    $i = 0;
+    do {
+        echo "Hello" . "<br>";
+        $i++;
+    } while ($i < 4);
+
+    echo '<br>';
+
+    //boucles avec break//
+    for ($i = 0; $i < 4; $i++) {
+        if ($i == 3) {
+            break;
+            echo "Hello";
         }
+    }
+    echo '<br>';
+    //le rendu donne  3 fois Hello car au bout de 3 fois la boucle for s'arrette//
+    for ($i = 0; $i < 4; $i++) {
+        if ($i == 3) {
+            break;
+        }
+        echo "Hello".'<br>';
+    }
+    echo '<br>';
+      //boucles avec continue//
+      for ($i = 0;$i <= 4;$i++) {
+        if ($i == 3) {
+            continue;
+        }
+        echo "$i<br>"; //affiche 0124//
+    }
+    echo '<br>';
     ?>
 </body>
 
