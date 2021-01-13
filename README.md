@@ -7,4 +7,4 @@ Source : [Pierre Giraud - Cours de PHP](https://www.pierre-giraud.com/php-mysql-
 
 Ils sont uploadés en tant que support sur mon git.
 
-Vous trouverez aussi les cours suivis par Webforce 3 (session 2020-2021) en PHP
+Vous trouverez aussi les cours donnés par Webforce 3 (session 2020-2021) en PHP
