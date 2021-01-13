@@ -47,5 +47,8 @@
     while ($donnees = $reponse->fetch()) {
         echo " les jeux posséder par michel sont : " . $donnees['nom'] . " " . $donnees['prix'] . " €<br>";
     }
+
+    $inscription = $bdd->prepare("INSERT INTO jeux_video VALUES(ID, 'Space invader', :possesseur, 'PS2', 20, 5, 'il est nul à chier')");
+    $inscription->execute(array('possesseur'=> 'Bernadette'));
     ?>
 
