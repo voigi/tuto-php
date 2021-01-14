@@ -1,8 +1,41 @@
 <?php
+
+//on inclut le fichier Connexion.php
+
+include("Connexion.php");
+
 //Recuperons les données la super variable $_POST car notre formulaire est en methode post//
- echo 'Votre civilité est :'.$_POST['Civ'].'<br>'.'Votre nom est : '.$_POST['nom'].'<br>'.'Votre prenom est : '.$_POST['prenom'].'<br>'.'Votre date de naissance est : '.$_POST['naissance'].'<br>'.'Votre adresse est : '.$_POST['adresse'].'<br>'.'Votre code postal est : '.$_POST['postal'].'<br>'.'Votre ville est : '.$_POST['Ville'].'<br>'.'Votre mail est : '.$_POST['mail'].'<br><br>';
+//  echo 'Votre civilité est :'.$_POST['Civ'].'<br>'.'Votre nom est : '.$_POST['nom'].'<br>'.'Votre prenom est : '.$_POST['prenom'].'<br>'.'Votre date de naissance est : '.$_POST['naissance'].'<br>'.'Votre adresse est : '.$_POST['adresse'].'<br>'.'Votre code postal est : '.$_POST['postal'].'<br>'.'Votre ville est : '.$_POST['Ville'].'<br>'.'Votre mail est : '.$_POST['mail'].'<br><br>';
+
+//TP Formulaire Requete preparé securisé par htmlspecialcharts()//
+
+$civilite = $_POST['Civ'];
+$nom = $_POST['nom'];
+$prenom = $_POST['prenom'];
+$naissance = $_POST['naissance'];
+$adresse = $_POST['adresse'];
+$code = $_POST['postal'];
+$ville = $_POST['ville'];
+$mail = $_POST['mail'];
 
 
+$req= $bdd->prepare('INSERT INTO formulaire(civilite,nom,prenom,naissance,adresse,postal,ville,mail) 
+VALUES (:civilite,:nom,:prenom,:naissance,:adresse,:postal,:ville,:mail)');
+$req->execute(array(
+    'civilite'=>htmlspecialchars($civilite),
+    'nom' =>htmlspecialchars($nom),
+    'prenom' =>htmlspecialchars($prenom),
+    'naissance'=>htmlspecialchars($naissance),
+    'adresse'=>htmlspecialchars($adresse),
+    'postal'=>htmlspecialchars($code),
+    'ville' =>htmlspecialchars($ville),
+    'mail' =>htmlspecialchars($mail)  
+));
+
+echo '<br><br><br>';
+
+echo'TP FORMULAIRE 1';
+echo '<br><br>';
 if (isset($_POST['Civ']) && !empty($_POST['Civ']))
 {
     if (isset($_POST['nom']) && !empty($_POST['nom']))
