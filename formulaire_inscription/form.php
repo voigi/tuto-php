@@ -1,5 +1,5 @@
 <?php
-
+include("bootstrap.html");
 //on inclut le fichier Connexion.php
 
 include("Connexion.php");
@@ -18,6 +18,21 @@ $code = $_POST['postal'];
 $ville = $_POST['ville'];
 $mail = $_POST['mail'];
 
+
+if 
+( isset($nom) && empty($nom)
+&& isset($prenom) && empty($prenom)
+&& isset($naissance) && empty($naissance)
+&& isset($code) && empty($code)
+&& isset($ville) && empty($ville)
+&& isset($mail) && empty($mail)
+)
+{
+   ?> 
+    <p>Veuillez remplir le formulaire</p> 
+    <button class="btn btn-primary" id="back">retour</button>
+    <?php
+}
 
 $req= $bdd->prepare('INSERT INTO formulaire(civilite,nom,prenom,naissance,adresse,postal,ville,mail) 
 VALUES (:civilite,:nom,:prenom,:naissance,:adresse,:postal,:ville,:mail)');
@@ -101,3 +116,40 @@ else
 {
     echo "Veuillez saisir votre mail ".'<br>';
 }
+
+echo '<br>';
+?>
+
+<div class="container mt-4">
+
+<form action="verif.php" method="post">
+
+        <div class="form-group">
+            <label for="login">Login:</label>
+            <input type="text" class="form-control" name="login">
+        </div>
+        <div class="form-group">
+            <label for="mdp">Mot de Passe:</label>
+            <input type="password"  class="form-control"name="mdp">
+        </div>
+        <div class="form-group">
+            <label for="verif">Verification du mot de passe:</label>
+            <input type="password" class="form-control"  name="verif">
+        </div>
+       
+        
+        <input type="submit" class="btn btn-primary" value="S'enregistrer">
+        <button type="button" class="btn btn-primary" id="myBtn">Se Connecter</button>
+    </form>
+    <script>
+    var btn = document.getElementById('myBtn');
+    btn.addEventListener('click', function() {
+      document.location.href = 'connect.php';
+    });
+    var btn2 = document.getElementById('back');
+    btn2.addEventListener('click', function() {
+      document.location.href = 'formulaire_inscription.html';
+    });
+  </script>
+</div>
+
