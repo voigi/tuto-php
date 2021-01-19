@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 
 echo $_SERVER['SERVER_NAME'];
@@ -7,14 +6,4 @@ echo $_SERVER['SERVER_SOFTWARE'];
 echo $_SERVER['SERVER_PROTOCOL'];
 
 
-=======
-<?php
-
-echo $_SERVER['SERVER_NAME'];
-echo $_SERVER['SERVER_ADDR'];
-echo $_SERVER['SERVER_SOFTWARE'];
-echo $_SERVER['SERVER_PROTOCOL'];
-
-
->>>>>>> d4b0c18381271908fb80ce559f8ca3873532df0c
 ?>
