@@ -1,8 +1,4 @@
-<?php
 
-     session_start();
-
-?>
 <?php
 
 include('Connexion.php');
