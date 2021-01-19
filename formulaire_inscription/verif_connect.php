@@ -1,31 +1,30 @@
 <?php
 
-    // session_start();
+     session_start();
 
 ?>
 <?php
 
 include('Connexion.php');
-// $_SESSION['log'] = $_POST['log_in'];
-// $_SESSION['password'] = $_POST['pass'];
-// $_SESSION['log_in'] = $_POST['login'];
-// $_SESSION['pass'] = $_POST['mdp'];
+$log = $_POST['log_in'];
+$password = $_POST['pass'];
+$_SESSION ['pseudo'] = $log;
 
-// if ($_SESSION['log_in'] === $_SESSION['log'] && $_SESSION['pass'] === $_SESSION['password']) {
-//     header('location:profil.php');
-// } else {
-//     echo 'Mauvais mot de passe';
-// }
+$requete = $bdd->prepare('SELECT login_u,mdp FROM pass');
+$requete->execute(array(
+    'login_u'=>$log,
+    'mdp'=>$password
+));
 
-
-// if(!isset($_SESSION)){
-//     session_start();
-//    }
-$requete = $bdd->prepare('SELECT login_u FROM pass WHERE mdp = ?');
-$requete->execute(array('1234'));
 
  while ($donnees = $requete->fetch()) {
-     echo  $donnees['login_u'] . '<br>';
+     
+     if(($donnees['mdp'] === $password) && $donnees['login_u'] === $log){
+        header('Location:profil.php');
+    }else
+    {
+        header('location:connect.php');
+    }
     
  }
 

@@ -4,7 +4,7 @@ if(!isset($_SESSION)){
 }
 ?>
 <?php
-
-echo 'Bonjour '.$SESSION['login'];
+include('Connexion.php');
+echo 'Bonjour '. $_SESSION ['pseudo'];
 
 ?>
