@@ -1,23 +1,20 @@
 <?php
-if(!isset($_SESSION)){
     session_start();
-}
 ?>
 <?php
 include('Connexion.php');
 include('bootstrap.html');
 echo 'Bonjour '. $_SESSION ['pseudo'].'<br>';
 
+if(isset($_POST ['deco'])){
+   session_destroy();
+   header('Location:accueil.html');
+}
  ?>
  
- <button class="btn btn-primary" id="deco"> Deconnexion</button>
-
- <script>
-    var btn = document.getElementById('deco');
-    btn.addEventListener('click', function() {
-      document.location.href = 'formulaire_inscription.html';
-    });
-  </script>
+ <form  method="POST">
+     <input type="submit" id="deco" name="deco"  value="Deconnexion" class="btn btn-primary">
+ </form>
 
 
 
