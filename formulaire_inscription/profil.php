@@ -8,10 +8,9 @@ echo 'Bonjour '. $_SESSION ['pseudo'].'<br>';
 
 if(isset($_POST ['deco'])){
    session_destroy();
-   header('Location:accueil.html');
+   header('Location:accueil.php');
 }
  ?>
- 
  <form  method="POST">
      <input type="submit" id="deco" name="deco"  value="Deconnexion" class="btn btn-primary">
  </form>
