@@ -1,13 +1,13 @@
 
     <?php
     include('bootstrap.html');
-    if (
-        isset($_SESSION['log_in']) && !empty($_SESSION['log_in'])
-        && isset($_SESSION['pass']) && !empty($_SESSION['pass'])
-    ) 
-    {
-       $_SESSION['pass']=$_POST['mdp'];
-    }
+    // if (
+    //     isset($_SESSION['log_in']) && !empty($_SESSION['log_in'])
+    //     && isset($_SESSION['pass']) && !empty($_SESSION['pass'])
+    // ) 
+    // {
+    //    $_SESSION['pass']=$_POST['mdp'];
+    // }
     ?>
     
     <div class="container mt-4">

@@ -6,32 +6,41 @@ include('Connexion.php');
 include('bootstrap.html');
 echo 'Bonjour '. @$_SESSION ['pseudo'].'<br><br>';
 
-if(isset($_POST ['deco'])){
-   session_destroy();
-   header('Location:accueil.php');
-}
+
  ?>
  <?php
-  if(isset($_FILES['photo']) && $_FILES['photo']['error'] == 0)
-  {
-    $photoname=$_FILES['photo']['name'];
-    $phototype=$_FILES['photo']['type'];
-    $photosize=$_FILES['photo']['size'];
+    if(isset($_FILES["photo"]) && $_FILES["photo"]["error"] == 0){
+      $filename = $_FILES["photo"]["name"];
+      $filetype = $_FILES["photo"]["type"];
+      $filesize = $_FILES["photo"]["size"];
+      $cheminimg= "../images/".$filename;
 
-    move_uploaded_file($_FILES['photo']['tmp_name'],"images/".$_FILES['photo']['name']);
-  }
- ?>
+      $req= $bdd->prepare('UPDATE pass SET chemin_img = :chemin WHERE login_u = :logs');
+      $req->execute(array( 
+          'chemin'=>$cheminimg,
+          'logs'=>$_SESSION['pseudo']
+      ));
+      $req2=$bdd->prepare('SELECT chemin_img FROM pass WHERE login_u=:logs');
+      $req2->execute(array( 
+        'logs'=>$_SESSION['pseudo']
+    ));
+    $stock = $req2->fetch();
+    ?>
+   
+
  <form method="post" enctype="multipart/form-data">
    <label for="upload">Fichier:</label>
    <input type="file" name="photo" id="upload">
    <input type="submit" name="submit" value="Upload"> 
  </form>
  <br>
- <form  method="POST">
-     <input type="submit" id="deco" name="deco"  value="Deconnexion" class="btn btn-primary">
- </form>
-
-
+ <img src="images/<?php echo $stock['chemin_img'];?>" alt="">
+<?php
+echo'<br>';
+              move_uploaded_file($_FILES["photo"]["tmp_name"], "../images/" . $_FILES["photo"]["name"]);
+              echo "Votre fichier a été téléchargé avec succès.";           
+}
+ ?>
 
 
 
