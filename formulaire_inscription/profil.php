@@ -13,8 +13,11 @@ echo 'Bonjour '. @$_SESSION ['pseudo'].'<br><br>';
       $filename = $_FILES["photo"]["name"];
       $filetype = $_FILES["photo"]["type"];
       $filesize = $_FILES["photo"]["size"];
-      $cheminimg= "../images/".$filename;
-
+      $cheminimg = "../images/".$_FILES["photo"]["name"];
+      move_uploaded_file($_FILES["photo"]["tmp_name"], "images/" . $_FILES["photo"]["name"]);
+        }
+      
+     
       $req= $bdd->prepare('UPDATE pass SET chemin_img = :chemin WHERE login_u = :logs');
       $req->execute(array( 
           'chemin'=>$cheminimg,
@@ -25,6 +28,7 @@ echo 'Bonjour '. @$_SESSION ['pseudo'].'<br><br>';
         'logs'=>$_SESSION['pseudo']
     ));
     $stock = $req2->fetch();
+   
     ?>
    
 
@@ -33,14 +37,10 @@ echo 'Bonjour '. @$_SESSION ['pseudo'].'<br><br>';
    <input type="file" name="photo" id="upload">
    <input type="submit" name="submit" value="Upload"> 
  </form>
+ <?php echo "Votre fichier a été téléchargé avec succès.";?> 
  <br>
  <img src="images/<?php echo $stock['chemin_img'];?>" alt="">
-<?php
-echo'<br>';
-              move_uploaded_file($_FILES["photo"]["tmp_name"], "../images/" . $_FILES["photo"]["name"]);
-              echo "Votre fichier a été téléchargé avec succès.";           
-}
- ?>
+
 
 
 
