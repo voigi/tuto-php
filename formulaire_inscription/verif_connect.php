@@ -19,7 +19,7 @@ $requete->execute(array(
 
  while ($donnees = $requete->fetch()) {
 
-      if(($donnees['mdp'] === $password) && $donnees['login_u'] === $log)
+      if((password_verify( $password,$donnees['mdp'] )) && $donnees['login_u'] === $log)
       {
          
         header('Location:accueil.php');
