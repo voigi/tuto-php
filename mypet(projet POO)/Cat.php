@@ -1,11 +1,19 @@
 <?php
 
    class Cat{
+       private $id;
        private $name;
        private $poids;
        private $age;
        private $admission;
 
+
+        public  function getId(){
+            return $this->id;
+        }
+        public  function setId(int,$id){
+            $this->id = $id;
+        }
         public  function getName(){
             return $this->name;
         }

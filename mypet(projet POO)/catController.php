@@ -19,6 +19,4 @@ echo 'l\'age du chat est de '.$cat->getAge(). ' ans';
 //creer la base deonnées//
 // table chat  nom varchar 255,age entier, poids float, date d'admission datetime//
 
-
-
 ?>
