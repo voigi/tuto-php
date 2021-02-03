@@ -11,7 +11,7 @@
         public  function getId(){
             return $this->id;
         }
-        public  function setId(int,$id){
+        public  function setId(int $id){
             $this->id = $id;
         }
         public  function getName(){
@@ -38,11 +38,11 @@
         public  function setAdmission(\DateTime $admission){
             $this->admission = $admission;
         }
-        public function __construct(string $name,float $poids,int $age){
-            $this->name = $name;
-            $this->poids = $poids;
-            $this->age = $age;
-        }
+        // public function __construct(string $name,float $poids,int $age){
+        //     $this->name = $name;
+        //     $this->poids = $poids;
+        //     $this->age = $age;
+        // }
    }
   
 ?>
