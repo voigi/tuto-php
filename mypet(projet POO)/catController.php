@@ -10,7 +10,7 @@ $poids = $_POST['poids'];
 $age = $_POST['age'];
 
 $cat = new Cat();
-$cat->setName($name);
+$cat->setName($nom);
 $cat->setAge($age);
 $cat->setPoids($poids);
 

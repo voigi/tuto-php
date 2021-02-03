@@ -10,9 +10,9 @@ class CatService{
         $validator = new CatValidator();
         $validator->validate($cat);
         //renseigne la date courante comme date d'admission
-        $cat->setDate(new DateTime());
+        $cat->setAdmission(new DateTime());
         //puis enregistrement en BDD
-        $dao= new Dao();
+        $dao= new CatDao();
         $dao->insert($cat);
     }
    
