@@ -1,22 +1,40 @@
 <?php
+
+include 'errors.php';
+
 require_once 'Cat.php';
+require_once 'CatDAO.php';
+require_once 'CatService.php';
+
+session_start();
+$action = $_GET['action'];
 
 $nom = $_POST['nom'];
 $poids = $_POST['poids'];
 $age = $_POST['age'];
 
-$cat = new Cat($nom,$poids,$age);
-echo 'le nom du chat est '.$cat->getName().'<br>';
-echo 'le poids du chat est '.$cat->getPoids().'<br>';
-echo 'l\'age du chat est de '.$cat->getAge(). ' ans';
+$cat = new Cat();
+$cat->setName($nom);
+$cat->setAge(intval($age));
+$cat->setPoids(floatval($poids));
 
-//Instensier le modele//
-//appeller les methodes du modeles qui vont enregistrer le chat//
-//le modele va nous envoyer le chat nouvellement creer//
+//instantier le 'modele'
+$catService = new CatService();
+$result = $catService->createCat($cat);
 
-//afficher le vue detail du chat//
+if ($result instanceof Cat) {
+	$id = $result->getId();
+	header('Location: details.php?id=$id');
+} else {
+	$_SESSION['errors'] = $result;
+	header('Location: new.php');
+}
+//appeler les méthodes du modele qui enregistre le chat
+//le modele, va nous renvoyer le chat nouvellement créer.
 
-//creer la base deonnées//
-// table chat  nom varchar 255,age entier, poids float, date d'admission datetime//
+//afficher la vue 'details' du chat.
 
-?>
+//ex1: créer la base de données, ainsi que la table chat :
+  //table chat : nom (varchar 255, age entier, weigth float, date d'admission datetime)
+  // + ID auto incrémenté
+  // toutes les données sont obligatoires
