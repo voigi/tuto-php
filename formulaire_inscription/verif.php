@@ -24,11 +24,12 @@ include("bootstrap.html");
 if(isset($_POST['login']) && !empty($_POST['login']))
 {
     if($_SESSION['mdp'] === $verif){
+$hashed_password = password_hash($_POST['mdp'],PASSWORD_DEFAULT);
 $req= $bdd->prepare('INSERT INTO pass(login_u,mdp) 
 VALUES (:login_u,:mdp)');
 $req->execute(array(
     'login_u'=>$_SESSION['login'],
-    'mdp' =>$_SESSION['mdp']
+    'mdp' =>$hashed_password
     
 ));
 echo"Votre mot de passe est enregistré";

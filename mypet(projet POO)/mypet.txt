@@ -1,0 +1,24 @@
+mypet est une application de gestion de clinique veterinaire (mais que de chats)
+elle se constitue d'un formulaire d'enregistrement de chatset d'une page pour afficher un chat qui vient d'etre enregistrée
+(new.php,detail.php)
+
+responsabilité del'application
+
+Controlleur: Chargé d'extraire les données des requetes utilisateurs
+(requete formulaire http)
+
+2.Modeles
+2.1:Valider les données par l'utilisateur (CatValidator)
+2.2 :(Eventuellement):logique metier (par ex: envoi d'un mail au proprietaire de chat lors de l'enregistrement)
+2.3 L'enregistrement en base de données
+
+3.Vue : 2 page php simples
+- 1 qui contiendra le formulaire
+- 2 affichera les données nouvellement enregistrée
+
+DESCRIPTION DU CHAT:
+
+- nom
+- poids (float)
+- age
+- date d'admision (pas ds le form)

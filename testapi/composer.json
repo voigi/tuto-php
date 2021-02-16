@@ -1,0 +1,8 @@
+{
+    "name": "etudiant/testapi",
+    "description": "external api test",
+    "type": "project",
+    "require": {
+        "php-curl-class/php-curl-class": "^8.9"
+    }
+}

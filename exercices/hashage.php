@@ -1,18 +1,24 @@
 
-    <?php
-    include('bootstrap.html');
-    // if (
-    //     isset($_SESSION['log_in']) && !empty($_SESSION['log_in'])
-    //     && isset($_SESSION['pass']) && !empty($_SESSION['pass'])
-    // ) 
-    // {
-    //    $_SESSION['pass']=$_POST['mdp'];
-    // }
-    ?>
-    
-    <div class="container mt-4">
+<?php
+include 'bootstrap.html';
+?>
+<?php
+$password='test1';
+
+$hashed_password = password_hash($_POST['pass'],PASSWORD_DEFAULT);
+var_dump($hashed_password);
+
+if(password_verify($password,$hashed_password)){
+    echo "Bon mdp";
+}
+else{
+    echo "Mauvais mdp";
+}
+?>
+
+<div class="container mt-4">
         <h2>Formulaire de Connexion</h2>
-        <form action="verif_connect.php" method="post">
+        <form action="" method="post">
 
             <div class="form-group">
                 <label for="login">Login:</label>
@@ -26,4 +32,6 @@
 
         </form>
     </div>
+
+
 
